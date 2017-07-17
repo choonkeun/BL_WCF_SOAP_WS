@@ -1,0 +1,85 @@
+http://localhost:39880/Service1.svc?wsdl
+
+http://localhost:39880/Service1.svc
+content-type: text/xml; charset=utf-8
+SOAPAction: http://tempuri.org/IService1/AddOrUpdateToDo
+
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+<s:Header />
+  <s:Body>
+    <AddOrUpdateToDo xmlns="http://tempuri.org/" >
+        <toDoItem>
+          <Id>d7b69d97-f759-493b-b3cc-8c6b8295ed94</Id>
+          <Description>TEST1</Description>
+        </toDoItem>
+    </AddOrUpdateToDo>
+  </s:Body>
+</s:Envelope>
+
+http://localhost:39880/Service1.svc
+content-type: text/xml; charset=utf-8;
+SOAPAction: http://tempuri.org/IService1/GetToDos
+
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+<s:Header />
+  <s:Body>
+    <GetToDos xmlns="http://tempuri.org/" />
+  </s:Body>
+</s:Envelope>
+---
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+<s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<GetToDosResponse xmlns="http://tempuri.org/">
+<GetToDosResult>
+<ToDoItem>
+<Id>d7b69d97-f759-493b-b3cc-8c6b8295ed94</Id>
+<Description>TEST2</Description>
+</ToDoItem>
+</GetToDosResult>
+</GetToDosResponse>
+</s:Body>
+</s:Envelope>
+---
+{
+    "id" : "0d5f7385-fb42-49b8-ad9b-467184e42cfd",
+    "Description" : "test 1"
+}
+
+
+---WCF TEST CLIENT---
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header>
+    <Action s:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">http://tempuri.org/IService1/GetToDos</Action>
+  </s:Header>
+  <s:Body>
+    <GetToDos xmlns:d3p1="http://schemas.datacontract.org/2004/07/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://tempuri.org/" />
+  </s:Body>
+</s:Envelope>
+---
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header>
+    <Action s:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">http://tempuri.org/IService1/AddOrUpdateToDo</Action>
+  </s:Header>
+  <s:Body>
+    <AddOrUpdateToDo xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://tempuri.org/">
+      <toDoItem>
+        <Id>9f8d0d8e-743b-4c0a-95cf-f42cc083e665</Id>
+        <Description>test</Description>
+      </toDoItem>
+    </AddOrUpdateToDo>
+  </s:Body>
+</s:Envelope>
+---
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header />
+  <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <GetToDosResponse xmlns="http://tempuri.org/">
+      <GetToDosResult>
+        <ToDoItem>
+          <Id>d7b69d97-f759-493b-b3cc-8c6b8295ed94</Id>
+          <Description>TEST1</Description>
+        </ToDoItem>
+      </GetToDosResult>
+    </GetToDosResponse>
+  </s:Body>
+</s:Envelope>

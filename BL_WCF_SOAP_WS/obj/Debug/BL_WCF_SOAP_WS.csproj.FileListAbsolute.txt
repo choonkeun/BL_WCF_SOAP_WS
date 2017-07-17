@@ -1,0 +1,5 @@
+D:\Develop\BL_WCF_SOAP_WS\BL_WCF_SOAP_WS\bin\WcfService1.dll.config
+D:\Develop\BL_WCF_SOAP_WS\BL_WCF_SOAP_WS\bin\WcfService1.dll
+D:\Develop\BL_WCF_SOAP_WS\BL_WCF_SOAP_WS\bin\WcfService1.pdb
+D:\Develop\BL_WCF_SOAP_WS\BL_WCF_SOAP_WS\obj\Debug\WcfService1.dll
+D:\Develop\BL_WCF_SOAP_WS\BL_WCF_SOAP_WS\obj\Debug\WcfService1.pdb
